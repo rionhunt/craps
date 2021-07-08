@@ -1,6 +1,7 @@
 // JavaScript file to roll the dice and change the die images.
 
-var randomNumber;
+var randomNumber1;
+var randomNumber2;
 var randomImage;
 
 // Function to roll the dice.
@@ -10,7 +11,7 @@ function rollDice() {
 }
 
 // Roll and set first die.
-randomNumber = rollDice();
+randomNumber1 = rollDice();
 if (randomNumber === 1) {
   document
     .getElementsByClassName("img1")[0]
@@ -38,7 +39,7 @@ if (randomNumber === 1) {
 }
 
 //Roll and set the second die.
-randomNumber = rollDice();
+randomNumber2 = rollDice();
 if (randomNumber === 1) {
   document
     .getElementsByClassName("img2")[0]
@@ -63,4 +64,12 @@ if (randomNumber === 1) {
   document
     .getElementsByClassName("img2")[0]
     .setAttribute("src", "images/dice2.png");
+}
+// Declare a winner.
+if (randomNumber1 > randomNumber2) {
+  document.querySelector("h1").innerHTML = "Player 1 Wins!";
+} else if (randomNumber2 > randomNumber1) {
+  document.querySelector("h1").innerHTML = "Player 2 Wins!";
+} else if (randomNumber2 === randomNumber1) {
+  document.querySelector("h1").innerHTML = "It's A Tie! Roll Again!";
 }
